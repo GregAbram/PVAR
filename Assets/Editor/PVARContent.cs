@@ -3,8 +3,9 @@ using UnityEditor;
 using UnityEngine;
 
 // PVAR's content, added to each new scene: PVLink's SimContainer (the volume
-// the ParaView data is fitted into, with its MeshReceiver) floating above the
-// magenta reference post, so every viewer sees the data in the same place,
+// the ParaView data is fitted into, with its MeshReceiver) centered on the
+// magenta reference post's crossbar (room height 0, the first surveyed
+// tag's center height), so every viewer sees the data in the same place,
 // and PVARDataManager to use a room's DataManager address.
 public static class PVARContent
 {
@@ -17,7 +18,7 @@ public static class PVARContent
         container.name = "SimContainer";
         Object.DestroyImmediate(container.GetComponent<Collider>());
         container.transform.SetParent(reference != null ? reference : parts.Content, false);
-        container.transform.localPosition = new Vector3(0f, 1.4f, 0f);
+        container.transform.localPosition = Vector3.zero;
         container.transform.localScale = Vector3.one * 0.6f;
         container.AddComponent<SimContainerObject>();
         var receiver = container.AddComponent<MeshReceiver>();
