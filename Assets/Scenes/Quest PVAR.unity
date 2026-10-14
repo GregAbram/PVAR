@@ -845,6 +845,7 @@ GameObject:
   - component: {fileID: 819073702}
   - component: {fileID: 819073701}
   - component: {fileID: 819073700}
+  - component: {fileID: 819073703}
   m_Layer: 0
   m_Name: Status Text
   m_TagString: Untagged
@@ -852,6 +853,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &819073703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819073699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7455d3a06a6f468faf6dbdc2fd62142b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PVARStatusToggle
+  statusText: {fileID: 819073700}
 --- !u!114 &819073700
 MonoBehaviour:
   m_ObjectHideFlags: 0
