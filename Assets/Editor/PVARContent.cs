@@ -3,23 +3,26 @@ using UnityEditor;
 using UnityEngine;
 
 // PVAR's content, added to each new scene: PVLink's SimContainer (the volume
-// the ParaView data is fitted into, with its MeshReceiver) centered on the
-// magenta reference post's crossbar (room height 0, the first surveyed
-// tag's center height), so every viewer sees the data in the same place,
-// and PVARDataManager to use a room's DataManager address.
+// the ParaView data is fitted into, with its MeshReceiver), a child of the
+// room anchor at a fixed room position and size, so every viewer sees the
+// data in the same place; and PVARDataManager to use a room's DataManager
+// address. To place the data elsewhere, move SimContainer in the scene.
 public static class PVARContent
 {
+    // Room frame (meters, y up): the TACC room's origin is a floor corner.
+    private static readonly Vector3 DataCenter = new(-2f, 1.4f, -2f);
+    private const float DataSize = 2f;
+
     private const string ScalarMaterialPath = "Packages/com.paraviewlink.unity/Materials/M_ScalarField.mat";
 
     public static void Add(string scenePath, AprilTagsSceneParts parts)
     {
-        var reference = parts.Anchor.transform.Find("Reference Marker");
         var container = GameObject.CreatePrimitive(PrimitiveType.Cube);
         container.name = "SimContainer";
         Object.DestroyImmediate(container.GetComponent<Collider>());
-        container.transform.SetParent(reference != null ? reference : parts.Content, false);
-        container.transform.localPosition = Vector3.zero;
-        container.transform.localScale = Vector3.one * 0.6f;
+        container.transform.SetParent(parts.Anchor.transform, false);
+        container.transform.localPosition = DataCenter;
+        container.transform.localScale = Vector3.one * DataSize;
         container.AddComponent<SimContainerObject>();
         var receiver = container.AddComponent<MeshReceiver>();
         receiver.BaseScalarMaterial = AssetDatabase.LoadAssetAtPath<Material>(ScalarMaterialPath);

@@ -1,7 +1,7 @@
 using UnityEditor;
 
 // PVAR: the Locator with ParaView geometry from a PVLink DataManager, placed in
-// the shared room above the reference post.
+// the shared room at a fixed room position (see PVARContent).
 // Menu: Tools > PVAR. Batchmode (re-runnable; Build also configures):
 //   -buildTarget iOS -executeMethod PVARApp.BuildIOS        (Xcode project in Builds/iOS)
 //   -buildTarget Android -executeMethod PVARApp.BuildQuest  (Builds/Quest/PVAR.apk)

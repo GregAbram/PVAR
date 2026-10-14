@@ -28,11 +28,18 @@
       "url": "https://packages.unity.com"
     },
     "com.paraviewlink.unity": {
-      "version": "https://github.com/GregAbram/PVLink.git?path=ParaViewLinkUnity#3e58a9866b0a582ee0b1059ba6e76845bf844845",
+      "version": "https://github.com/GregAbram/PVLink.git?path=ParaViewLinkUnity#f78bf7a515aaa58f443c930756a6c9c45527c63c",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3e58a9866b0a582ee0b1059ba6e76845bf844845"
+      "hash": "f78bf7a515aaa58f443c930756a6c9c45527c63c"
+    },
+    "com.tacc.datamanager": {
+      "version": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#b9090bc9c09765b052a25833b738307eed2dd8f7",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b9090bc9c09765b052a25833b738307eed2dd8f7"
     },
     "com.unity.ai.navigation": {
       "version": "2.0.10",
