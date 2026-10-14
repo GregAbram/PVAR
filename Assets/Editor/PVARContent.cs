@@ -11,7 +11,7 @@ public static class PVARContent
 {
     // Room frame (meters, y up): the TACC room's origin is a floor corner.
     private static readonly Vector3 DataCenter = new(-2f, 1.4f, -2f);
-    private const float DataSize = 2f;
+    private const float DataSize = 1f;
 
     private const string ScalarMaterialPath = "Packages/com.paraviewlink.unity/Materials/M_ScalarField.mat";
 
