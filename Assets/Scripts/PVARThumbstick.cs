@@ -131,7 +131,10 @@ public class PVARThumbstick : MonoBehaviour
             shownOnline = upstream.Value.IsOnline;
             if (!upstream.Value.IsOnline)
             {
-                ShowLabel($"Offline: showing cached data\n{upstream.Value.Offline} can't be reached", 6f);
+                // "discovery": it was found by discovery, and can't be found now.
+                var who = upstream.Value.Offline == "discovery" ? "the DataManager can't be found"
+                                                                : $"{upstream.Value.Offline} can't be reached";
+                ShowLabel($"Offline: showing cached data\n{who}", 6f);
             }
             else if (wasKnown)
             {
