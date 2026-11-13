@@ -2,8 +2,8 @@
   "dependencies": {
     "com.meta.xr.mrutilitykit": "207.0.0",
     "com.meta.xr.sdk.core": "207.0.0",
-    "com.paraviewlink.unity": "https://github.com/GregAbram/DataManager.git?path=pvlink/ParaViewLinkUnity#830131d34f478a09e8821423557d869ccd974649",
-    "com.tacc.datamanager": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#830131d34f478a09e8821423557d869ccd974649",
+    "com.paraviewlink.unity": "https://github.com/GregAbram/DataManager.git?path=pvlink/ParaViewLinkUnity#29e8cf8ee3f1559282fe5b65755a61634ee88a90",
+    "com.tacc.datamanager": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#29e8cf8ee3f1559282fe5b65755a61634ee88a90",
     "com.unity.feature.development": "1.0.2",
     "com.unity.inputsystem": "1.19.0",
     "com.unity.learn.iet-framework": "6.0.6",
