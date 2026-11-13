@@ -8,7 +8,8 @@ using UnityEngine;
 // moves one, holding repeats; stepping stops Play) - for every app following
 // the state. Up and down switch this headset to the previous or next of the
 // DataManager's states, once per push; a label below the line of sight names
-// the state for a few seconds. Made at startup on an object of its own, for
+// the state for a few seconds. The same label says when the DataManager
+// can't be reached (cached data is shown) and when it's back. Made at startup on an object of its own, for
 // the scene's MeshReceiver, so scenes need no change. (The receiver's
 // SimContainer is inactive until the room is anchored.)
 public class PVARThumbstick : MonoBehaviour
@@ -17,6 +18,7 @@ public class PVARThumbstick : MonoBehaviour
     private int stickDirection;   // ±1 time, ±2 state, 0 centred
     private float repeatAt;
     private string shownState = "";
+    private bool? shownOnline;
     private TextMeshPro label;
     private float labelUntil;
 
@@ -122,13 +124,27 @@ public class PVARThumbstick : MonoBehaviour
             var i = Array.IndexOf(names, name);
             ShowLabel(i >= 0 && names.Length > 1 ? $"{name}\n{i + 1} of {names.Length}" : name);
         }
+        var upstream = receiver.UpstreamStatus;
+        if (upstream.HasValue && upstream.Value.IsOnline != shownOnline)
+        {
+            var wasKnown = shownOnline.HasValue;
+            shownOnline = upstream.Value.IsOnline;
+            if (!upstream.Value.IsOnline)
+            {
+                ShowLabel($"Offline: showing cached data\n{upstream.Value.Offline} can't be reached", 6f);
+            }
+            else if (wasKnown)
+            {
+                ShowLabel("DataManager online again");
+            }
+        }
         if (label != null && label.enabled && Time.unscaledTime > labelUntil)
         {
             label.enabled = false;
         }
     }
 
-    private void ShowLabel(string text)
+    private void ShowLabel(string text, float seconds = 3f)
     {
         if (label == null)
         {
@@ -155,6 +171,6 @@ public class PVARThumbstick : MonoBehaviour
         }
         label.text = text;
         label.enabled = true;
-        labelUntil = Time.unscaledTime + 3f;
+        labelUntil = Time.unscaledTime + seconds;
     }
 }
