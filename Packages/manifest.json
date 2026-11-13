@@ -2,8 +2,8 @@
   "dependencies": {
     "com.meta.xr.mrutilitykit": "207.0.0",
     "com.meta.xr.sdk.core": "207.0.0",
-    "com.paraviewlink.unity": "https://github.com/GregAbram/PVLink.git?path=ParaViewLinkUnity#f78bf7a515aaa58f443c930756a6c9c45527c63c",
-    "com.tacc.datamanager": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#b9090bc9c09765b052a25833b738307eed2dd8f7",
+    "com.paraviewlink.unity": "https://github.com/GregAbram/DataManager.git?path=pvlink/ParaViewLinkUnity#830131d34f478a09e8821423557d869ccd974649",
+    "com.tacc.datamanager": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#830131d34f478a09e8821423557d869ccd974649",
     "com.unity.feature.development": "1.0.2",
     "com.unity.inputsystem": "1.19.0",
     "com.unity.learn.iet-framework": "6.0.6",
@@ -56,7 +56,7 @@
     "com.unity.xr.management": "4.6.0",
     "com.unity.xr.meta-openxr": "2.5.1",
     "com.unity.xr.openxr": "1.17.1",
-    "edu.tacc.apriltags": "https://github.com/GregAbram/AprilTags.git#58f9c73fb186c769f246c1bdf9d8b8641bf030e7",
+    "edu.tacc.apriltags": "https://github.com/GregAbram/AprilTags.git#950c80a4dc20fea93cb89750e75b22174edafb21",
     "edu.umn.cs.ivlab.apriltag": "https://github.com/GregAbram/AprilTag-UnityPackage.git#e7fb480608798b693191f989413ca03eef189961"
   }
 }

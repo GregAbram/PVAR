@@ -28,18 +28,20 @@
       "url": "https://packages.unity.com"
     },
     "com.paraviewlink.unity": {
-      "version": "https://github.com/GregAbram/PVLink.git?path=ParaViewLinkUnity#f78bf7a515aaa58f443c930756a6c9c45527c63c",
+      "version": "https://github.com/GregAbram/DataManager.git?path=pvlink/ParaViewLinkUnity#830131d34f478a09e8821423557d869ccd974649",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "f78bf7a515aaa58f443c930756a6c9c45527c63c"
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0"
+      },
+      "hash": "830131d34f478a09e8821423557d869ccd974649"
     },
     "com.tacc.datamanager": {
-      "version": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#b9090bc9c09765b052a25833b738307eed2dd8f7",
+      "version": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#830131d34f478a09e8821423557d869ccd974649",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b9090bc9c09765b052a25833b738307eed2dd8f7"
+      "hash": "830131d34f478a09e8821423557d869ccd974649"
     },
     "com.unity.ai.navigation": {
       "version": "2.0.10",
@@ -422,13 +424,13 @@
       "url": "https://packages.unity.com"
     },
     "edu.tacc.apriltags": {
-      "version": "https://github.com/GregAbram/AprilTags.git#58f9c73fb186c769f246c1bdf9d8b8641bf030e7",
+      "version": "https://github.com/GregAbram/AprilTags.git#950c80a4dc20fea93cb89750e75b22174edafb21",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.mathematics": "1.3.3"
       },
-      "hash": "58f9c73fb186c769f246c1bdf9d8b8641bf030e7"
+      "hash": "950c80a4dc20fea93cb89750e75b22174edafb21"
     },
     "edu.umn.cs.ivlab.apriltag": {
       "version": "https://github.com/GregAbram/AprilTag-UnityPackage.git#e7fb480608798b693191f989413ca03eef189961",
