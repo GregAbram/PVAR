@@ -122,6 +122,19 @@ public class PVARVoice : MonoBehaviour
         speaker = gameObject.AddComponent<AudioSource>();
         speaker.playOnAwake = false;
         speaker.spatialBlend = 0f;   // in the head, not placed in the room
+        speaker.volume = 1f;
+        // Unity plays nothing without a listener, and the scene may have none.
+        var listener = FindAnyObjectByType<AudioListener>();
+        if (listener == null)
+        {
+            var head = Camera.main != null ? Camera.main.gameObject : gameObject;
+            head.AddComponent<AudioListener>();
+            Debug.Log($"[PVARVoice] No AudioListener in the scene; added one to {head.name}");
+        }
+        else
+        {
+            Debug.Log($"[PVARVoice] AudioListener on {listener.gameObject.name} (enabled {listener.enabled})");
+        }
     }
 
     private void OnDestroy()
@@ -254,6 +267,7 @@ public class PVARVoice : MonoBehaviour
             ShowLabel($"Cancelled\n\"{Shorten(r.heard, 80)}\"", 3f);
             return;
         }
+        Debug.Log($"[PVARVoice] heard \"{r.heard}\"; reply {r.reply.Length} chars; audio {(string.IsNullOrEmpty(r.audio_url) ? "none" : r.audio_url)}");
         var seconds = Mathf.Clamp(3f + r.reply.Length / 15f, 4f, 15f);
         ShowLabel($"\"{Shorten(r.heard, 100)}\"\n{r.reply}", seconds);
         if (!string.IsNullOrEmpty(r.audio_url))
@@ -272,11 +286,15 @@ public class PVARVoice : MonoBehaviour
             return;
         }
         var reply = FromWav(task.Result);
-        if (reply != null)
+        if (reply == null)
         {
-            speaker.clip = reply;
-            speaker.Play();
+            Debug.LogWarning($"[PVARVoice] Reply audio ({task.Result?.Length ?? 0} bytes) isn't 16-bit PCM WAV");
+            return;
         }
+        speaker.clip = reply;
+        speaker.Play();
+        Debug.Log($"[PVARVoice] Playing the reply: {reply.length:F1} s, {reply.frequency} Hz, " +
+                  $"listener volume {AudioListener.volume}, playing {speaker.isPlaying}");
     }
 
     private static string Shorten(string s, int n) =>
