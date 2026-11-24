@@ -28,20 +28,20 @@
       "url": "https://packages.unity.com"
     },
     "com.paraviewlink.unity": {
-      "version": "https://github.com/GregAbram/DataManager.git?path=pvlink/ParaViewLinkUnity#46e2a710d21f0291ba4d6808ae6deb771a277f60",
+      "version": "https://github.com/GregAbram/DataManager.git?path=pvlink/ParaViewLinkUnity#85221bbcecd4edd2e494832e8329712b7261946c",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.modules.physics": "1.0.0"
       },
-      "hash": "46e2a710d21f0291ba4d6808ae6deb771a277f60"
+      "hash": "85221bbcecd4edd2e494832e8329712b7261946c"
     },
     "com.tacc.datamanager": {
-      "version": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#46e2a710d21f0291ba4d6808ae6deb771a277f60",
+      "version": "https://github.com/GregAbram/DataManager.git?path=unity/com.tacc.datamanager#85221bbcecd4edd2e494832e8329712b7261946c",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "46e2a710d21f0291ba4d6808ae6deb771a277f60"
+      "hash": "85221bbcecd4edd2e494832e8329712b7261946c"
     },
     "com.unity.ai.navigation": {
       "version": "2.0.10",
