@@ -373,23 +373,46 @@ public class PVARVoice : MonoBehaviour
             {
                 return;
             }
+            // Lower right of the view, small, drawn over the data so it is never hidden.
             var go = new GameObject("Voice Label");
             go.transform.SetParent(head, false);
-            go.transform.localPosition = new Vector3(0f, -0.3f, 0.8f);   // below PVARThumbstick's label
+            go.transform.localPosition = new Vector3(0.2f, -0.17f, 0.7f);
             label = go.AddComponent<TextMeshPro>();
-            label.alignment = TextAlignmentOptions.Top;
-            label.rectTransform.sizeDelta = new Vector2(0.7f, 0.3f);
+            label.rectTransform.pivot = new Vector2(1f, 0f);   // grows up and to the left from the corner
+            label.rectTransform.sizeDelta = new Vector2(0.4f, 0.25f);
+            label.alignment = TextAlignmentOptions.BottomRight;
             label.textWrappingMode = TextWrappingModes.Normal;
-            label.fontSize = 0.25f;
+            label.fontSize = 0.14f;
             var status = GameObject.Find("Status Text")?.GetComponent<TextMeshPro>();
             if (status != null)
             {
                 label.font = status.font;
                 label.color = status.color;
             }
+            DrawOnTop(label);
         }
         label.text = text;
         label.enabled = true;
         labelUntil = Time.unscaledTime + seconds;
+    }
+
+    // TextMeshPro's 3D text is depth-tested, so data in front of it hides it.
+    // Its overlay shader ignores depth; if the build doesn't include that shader,
+    // the same effect comes from the depth-test mode TMP's shaders read.
+    private static void DrawOnTop(TextMeshPro text)
+    {
+        var mat = new Material(text.fontSharedMaterial);
+        var overlay = Shader.Find("TextMeshPro/Distance Field Overlay");
+        if (overlay != null)
+        {
+            mat.shader = overlay;
+        }
+        else
+        {
+            mat.SetFloat("unity_GUIZTestMode", (float)UnityEngine.Rendering.CompareFunction.Always);
+        }
+        mat.renderQueue = 4000;   // after everything else (Overlay)
+        text.fontMaterial = mat;
+        Debug.Log($"[PVARVoice] Label drawn on top with {(overlay != null ? "the overlay shader" : "ZTest Always")}");
     }
 }
