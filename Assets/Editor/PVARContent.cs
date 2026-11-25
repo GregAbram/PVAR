@@ -10,8 +10,11 @@ using UnityEngine;
 // Quest scenes also get PVARStatusToggle (Y hides the status panel).
 public static class PVARContent
 {
-    // Room frame (meters, y up): the TACC room's origin is a floor corner.
-    private static readonly Vector3 DataCenter = new(-2f, 1.4f, -2f);
+    // Room frame (meters, y up), the virtual room the room's base config
+    // anchors the physical room to (AprilTags room_base.json): origin on the
+    // floor below the reference tag, +X to the right facing it, +Z into its
+    // wall. The data's center: 1.4 m up, 2 m out into the room from that wall.
+    private static readonly Vector3 DataCenter = new(0f, 1.4f, -2f);
     private const float DataSize = 1f;
 
     private const string ScalarMaterialPath = "Packages/com.paraviewlink.unity/Materials/M_ScalarField.mat";
